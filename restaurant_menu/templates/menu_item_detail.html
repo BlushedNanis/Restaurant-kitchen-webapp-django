@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail</title>
-</head>
-<body>
-    <h1> {{ item.meal }} </h1>
-    <h3> {{ item.description }} </h3>
-    <h4> {{ item.price }} </h4>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2 class="pt-5"> {{ item.meal }} </h2>
+    <span class="badge bg-secondary rounded-pill"> {{ item.price }} </span>
+    <p class="lead"> {{ item.description }} </p>
     {% load static %}
-    <img src="{% static item.img_static_path %}" width="300">
-</body>
-</html>
+    <img class="rounded mx-auto d-block" src="{% static item.img_static_path %}" width="300">
+</div>
+{% endblock content %}
