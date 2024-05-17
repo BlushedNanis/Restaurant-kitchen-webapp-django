@@ -26,5 +26,8 @@ class Item(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     
+    def img_static_path(self):
+        return self.image.url[23:]
+    
     def __str__(self) -> str:
         return self.meal
