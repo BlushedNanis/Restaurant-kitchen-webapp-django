@@ -1,11 +1,17 @@
+from typing import Any
 from django.shortcuts import render
 from django.views import generic
-from .models import Item
+from .models import Item, MEALS_TYPE
 
 
 class MenuList(generic.ListView):
     queryset = Item.objects.order_by("-date_updated")
     template_name = "index.html"
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["meals"] = MEALS_TYPE
+        return context
     
     
 class MenuItemDetail(generic.DetailView):
