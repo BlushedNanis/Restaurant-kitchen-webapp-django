@@ -22,6 +22,7 @@ class Item(models.Model):
     meal_type = models.CharField(max_length=200, choices=MEALS_TYPE)
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.IntegerField(choices=STATUS, default=1)
+    image = models.ImageField(upload_to="uploads\\")
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     
